@@ -18,7 +18,7 @@ public class ExaminerServiceImpl implements ExaminerService {
     }
 
     @Override
-    public Collection<Question> getQuestions(int amount) {
+    public Collection<Question> getQuestions(int amount) throws IncorrectQuestionAmount {
         if (amount > javaQuestionService.getAll().size()) {
             throw new IncorrectQuestionAmount("Задано неверное число вопросов");
         }
